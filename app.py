@@ -31,5 +31,6 @@ def get_transcript(video_id):
         return jsonify({'error': 'Transcripts are disabled for this video'}), 404
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-
-app.run(host='0.0.0.0', port=3000)
+import os
+port = int(os.environ.get("PORT", 3000))
+app.run(host='0.0.0.0', port=port)
